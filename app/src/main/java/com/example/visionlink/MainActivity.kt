@@ -3,6 +3,8 @@ package com.example.visionlink
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.TextView
+import androidx.camera.core.Preview
+import androidx.camera.lifecycle.ProcessCameraProvider
 import com.example.visionlink.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -15,20 +17,10 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        // Example of a call to a native method
-        binding.sampleText.text = stringFromJNI()
+
     }
 
-    /**
-     * A native method that is implemented by the 'visionlink' native library,
-     * which is packaged with this application.
-     */
-    external fun stringFromJNI(): String
+    private fun startCamera(){
 
-    companion object {
-        // Used to load the 'visionlink' library on application startup.
-        init {
-            System.loadLibrary("visionlink")
-        }
     }
 }
